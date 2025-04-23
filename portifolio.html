@@ -1,0 +1,1084 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brian Bravo Chanda | CS Student Portfolio</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome for icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #4e54c8;
+            --secondary-color: #6c757d;
+            --accent-color: #8f94fb;
+            --dark-color: #212529;
+            --light-color: #f8f9fa;
+            /* New theme colors that will be used for color changing */
+            --theme-color-1: #4e54c8;
+            --theme-color-2: #4776E6;
+            --theme-color-3: #ff9966;
+            --theme-color-4: #2E3192;
+            --theme-color-5: #1CB5E0;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: var(--dark-color);
+            position: relative;
+            transition: background-color 0.5s ease;
+        }
+
+        /* Navbar styling with color transition */
+        .navbar {
+            transition: all 0.5s ease;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar-brand {
+            font-weight: 700;
+            font-size: 1.5rem;
+        }
+
+        .nav-link {
+            font-weight: 500;
+            margin: 0 0.5rem;
+            transition: color 0.3s ease;
+        }
+
+        /* Improved Hero section with enhanced gradient animation */
+        #hero {
+            height: 100vh;
+            background: linear-gradient(-45deg, var(--theme-color-1), var(--theme-color-2), var(--theme-color-3), var(--theme-color-4), var(--theme-color-5));
+            background-size: 400% 400%;
+            animation: gradient 15s ease infinite;
+            display: flex;
+            align-items: center;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        @keyframes gradient {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        .hero-content {
+            max-width: 700px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-title {
+            font-size: 3.5rem;
+            font-weight: 700;
+        }
+
+        .hero-subtitle {
+            font-size: 1.5rem;
+            font-weight: 300;
+            margin-bottom: 2rem;
+        }
+
+        /* Floating animation for tech icons */
+        .floating-icons {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1;
+            opacity: 0.1;
+        }
+
+        .tech-icon {
+            position: absolute;
+            font-size: 2rem;
+            animation: float 6s infinite;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0) rotate(0deg);
+                opacity: 0.5;
+            }
+            50% {
+                transform: translateY(-20px) rotate(180deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(0) rotate(360deg);
+                opacity: 0.5;
+            }
+        }
+
+        /* About section */
+        #about {
+            padding: 6rem 0;
+            background-color: var(--light-color);
+            transition: background-color 0.5s ease;
+        }
+
+        .about-img {
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(78, 84, 200, 0.2);
+            transition: transform 0.3s ease;
+        }
+
+        .about-img:hover {
+            transform: translateY(-10px);
+        }
+
+        .section-title {
+            position: relative;
+            margin-bottom: 3rem;
+            font-weight: 700;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -10px;
+            height: 4px;
+            width: 60px;
+            background: linear-gradient(to right, var(--theme-color-1), var(--theme-color-2));
+            transition: background 0.5s ease;
+        }
+
+        .text-center .section-title::after {
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        /* Skills section */
+        #skills {
+            padding: 6rem 0;
+            position: relative;
+            transition: background-color 0.5s ease;
+        }
+
+        #skills::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%234e54c8' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            z-index: -1;
+        }
+
+        .skill-card {
+            background-color: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            margin-bottom: 1.5rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.5s ease;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(78, 84, 200, 0.15);
+        }
+
+        .skill-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(to right, var(--theme-color-1), var(--theme-color-2));
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 10px;
+            margin-bottom: 1rem;
+            transition: background 0.5s ease;
+        }
+
+        .progress {
+            height: 8px;
+            border-radius: 4px;
+            overflow: visible;
+            margin-top: 0.5rem;
+        }
+
+        .progress-bar {
+            background: linear-gradient(to right, var(--theme-color-1), var(--theme-color-2));
+            position: relative;
+            transition: background 0.5s ease;
+        }
+
+        .progress-level {
+            position: absolute;
+            right: 0;
+            top: -25px;
+            font-weight: 600;
+            font-size: 0.8rem;
+        }
+
+        /* Projects section */
+        #projects {
+            padding: 6rem 0;
+            background-color: var(--light-color);
+            transition: background-color 0.5s ease;
+        }
+
+        .project-card {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            margin-bottom: 2rem;
+            background-color: white;
+            transition: transform 0.3s ease, background-color 0.5s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .project-img {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-img img {
+            transition: transform 0.5s ease;
+        }
+
+        .project-card:hover .project-img img {
+            transform: scale(1.1);
+        }
+
+        .project-tag {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: var(--theme-color-1);
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            transition: background-color 0.5s ease;
+        }
+
+        .project-content {
+            padding: 1.5rem;
+        }
+
+        .project-title {
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            margin: 0.5rem 0;
+        }
+
+        .tech-badge {
+            background-color: rgba(78, 84, 200, 0.1);
+            color: var(--theme-color-1);
+            padding: 0.2rem 0.6rem;
+            border-radius: 15px;
+            font-size: 0.75rem;
+            margin-right: 0.5rem;
+            margin-bottom: 0.5rem;
+            transition: background-color 0.5s ease, color 0.5s ease;
+        }
+
+        /* Education section */
+        #education {
+            padding: 6rem 0;
+            transition: background-color 0.5s ease;
+        }
+
+        .timeline {
+            position: relative;
+            padding-left: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 2px;
+            background: linear-gradient(to bottom, var(--theme-color-1), var(--theme-color-2));
+            transition: background 0.5s ease;
+        }
+
+        .timeline-item {
+            position: relative;
+            padding-left: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -2rem;
+            top: 0;
+            height: 15px;
+            width: 15px;
+            border-radius: 50%;
+            background: linear-gradient(to right, var(--theme-color-1), var(--theme-color-2));
+            transition: background 0.5s ease;
+        }
+
+        .timeline-date {
+            font-weight: 700;
+            color: var(--theme-color-1);
+            transition: color 0.5s ease;
+        }
+
+        .timeline-card {
+            background-color: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease, background-color 0.5s ease;
+        }
+
+        .timeline-card:hover {
+            transform: translateY(-5px);
+        }
+
+        /* Contact section */
+        #contact {
+            padding: 6rem 0;
+            background-color: var(--light-color);
+            transition: background-color 0.5s ease;
+        }
+
+        .contact-info-card {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            height: 100%;
+            transition: background-color 0.5s ease;
+        }
+
+        .contact-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(to right, var(--theme-color-1), var(--theme-color-2));
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+            transition: background 0.5s ease;
+        }
+
+        .contact-form .form-control {
+            border-radius: 10px;
+            padding: 0.8rem 1rem;
+            margin-bottom: 1.5rem;
+            border: 1px solid #e1e1e1;
+            transition: all 0.3s ease;
+        }
+
+        .contact-form .form-control:focus {
+            box-shadow: none;
+            border-color: var(--theme-color-1);
+        }
+
+        .btn-gradient {
+            background: linear-gradient(to right, var(--theme-color-1), var(--theme-color-2));
+            color: white;
+            border: none;
+            border-radius: 10px;
+            padding: 0.8rem 2rem;
+            font-weight: 500;
+            transition: all 0.3s ease, background 0.5s ease;
+        }
+
+        .btn-gradient:hover {
+            background: linear-gradient(to right, var(--theme-color-2), var(--theme-color-1));
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(78, 84, 200, 0.3);
+        }
+
+        /* Footer */
+        footer {
+            padding: 2rem 0;
+            background-color: var(--dark-color);
+            color: white;
+            transition: background-color 0.5s ease;
+        }
+
+        .social-links a {
+            display: inline-block;
+            height: 40px;
+            width: 40px;
+            background: linear-gradient(to right, var(--theme-color-1), var(--theme-color-2));
+            margin: 0 0.5rem;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 40px;
+            color: white;
+            transition: all 0.3s ease, background 0.5s ease;
+        }
+
+        .social-links a:hover {
+            transform: translateY(-3px) rotate(360deg);
+            box-shadow: 0 5px 15px rgba(78, 84, 200, 0.3);
+        }
+
+        /* Scroll to top button */
+        .scroll-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: linear-gradient(to right, var(--theme-color-1), var(--theme-color-2));
+            color: white;
+            text-align: center;
+            line-height: 40px;
+            z-index: 999;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease, background 0.5s ease;
+        }
+
+        .scroll-to-top.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .scroll-to-top:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(78, 84, 200, 0.3);
+        }
+
+        /* Color theme switcher */
+        .theme-switcher {
+            position: fixed;
+            top: 50%;
+            right: 0;
+            transform: translateY(-50%);
+            z-index: 999;
+            background: white;
+            border-radius: 5px 0 0 5px;
+            box-shadow: -3px 0 10px rgba(0, 0, 0, 0.1);
+            padding: 10px;
+        }
+
+        .theme-btn {
+            display: block;
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            margin: 5px 0;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .theme-btn:hover {
+            transform: scale(1.2);
+        }
+
+        .theme-blue {
+            background: linear-gradient(to right, #4e54c8, #8f94fb);
+        }
+
+        .theme-purple {
+            background: linear-gradient(to right, #6a3093, #a044ff);
+        }
+
+        .theme-orange {
+            background: linear-gradient(to right, #f12711, #f5af19);
+        }
+
+        .theme-green {
+            background: linear-gradient(to right, #11998e, #38ef7d);
+        }
+
+        .theme-pink {
+            background: linear-gradient(to right, #fc5c7d, #6a82fb);
+        }
+
+        /* Success message styling */
+        .success-message {
+            display: none;
+            background-color: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+            border-radius: 5px;
+            padding: 10px 15px;
+            margin-top: 20px;
+        }
+
+        /* Modal styling */
+        .modal-content {
+            border-radius: 15px;
+            border: none;
+        }
+
+        .modal-header {
+            border-radius: 15px 15px 0 0;
+            background: linear-gradient(to right, var(--theme-color-1), var(--theme-color-2));
+            color: white;
+            border: none;
+        }
+
+        .modal-footer {
+            border-top: none;
+        }
+
+        /* Responsive styles */
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.2rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .timeline {
+                padding-left: 1rem;
+            }
+
+            .timeline-item {
+                padding-left: 1rem;
+            }
+
+            .theme-switcher {
+                top: auto;
+                bottom: 70px;
+                right: 10px;
+                transform: none;
+                display: flex;
+                border-radius: 25px;
+                padding: 5px 10px;
+            }
+
+            .theme-btn {
+                margin: 0 3px;
+            }
+        }
+    </style>
+</head>
+<body data-bs-spy="scroll" data-bs-target=".navbar" data-bs-offset="50">
+    <!-- Theme Switcher -->
+    <div class="theme-switcher">
+        <div class="theme-btn theme-blue" data-theme="blue"></div>
+        <div class="theme-btn theme-purple" data-theme="purple"></div>
+        <div class="theme-btn theme-orange" data-theme="orange"></div>
+        <div class="theme-btn theme-green" data-theme="green"></div>
+        <div class="theme-btn theme-pink" data-theme="pink"></div>
+    </div>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">Brian <span class="text-primary">Bravo</span></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#hero">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#skills">Skills</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#projects">Projects</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#education">Education</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section with animated background -->
+    <section id="hero">
+        <div class="floating-icons">
+            <!-- Tech icons that float in the background -->
+            <i class="fab fa-html5 tech-icon" style="top: 10%; left: 15%;"></i>
+            <i class="fab fa-css3-alt tech-icon" style="top: 20%; left: 45%;"></i>
+            <i class="fab fa-js-square tech-icon" style="top: 15%; left: 75%;"></i>
+            <i class="fab fa-react tech-icon" style="top: 50%; left: 25%;"></i>
+            <i class="fab fa-node-js tech-icon" style="top: 65%; left: 80%;"></i>
+            <i class="fab fa-python tech-icon" style="top: 80%; left: 10%;"></i>
+            <i class="fas fa-database tech-icon" style="top: 40%; left: 60%;"></i>
+            <i class="fab fa-github tech-icon" style="top: 75%; left: 45%;"></i>
+        </div>
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">Brian Bravo Chanda</h1>
+                <p class="hero-subtitle">Computer Science Student & Aspiring Developer</p>
+                <div class="d-flex">
+                    <a href="#about" class="btn btn-light btn-lg me-3">About Me</a>
+                    <a href="#projects" class="btn btn-outline-light btn-lg">My Projects</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-5 mb-4 mb-lg-0">
+                    <img src="./WhatsApp Image 2025-04-22 at 16.50.48_ea5bc8db.jpg" alt="About Me" class="img-fluid about-img w-100">
+                </div>
+                <div class="col-lg-7">
+                    <h2 class="section-title">About Me</h2>
+                    <p class="lead">I'm a passionate Computer Science student at The Copperbelt University with a keen interest in web development and software engineering.</p>
+                    <p>Currently pursuing my Bachelor's degree, I'm driven by a desire to create innovative digital solutions that make a positive impact. I enjoy tackling complex problems and continuously expanding my technical skills through hands-on projects and academic coursework.</p>
+                    <p>Outside of my studies, I'm active in coding communities, participate in hackathons, and develop personal projects to apply what I'm learning in real-world scenarios.</p>
+                    <div class="row mt-4">
+                        <div class="col-md-6 mb-3">
+                            <h5><i class="fas fa-user me-2 text-primary"></i> Name</h5>
+                            <p>Brian Bravo Chanda</p>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <h5><i class="fas fa-envelope me-2 text-primary"></i> Email</h5>
+                            <p>chandabrian02@gmail.com</p>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <h5><i class="fas fa-phone me-2 text-primary"></i> Phone</h5>
+                            <p>+260 972526777</p>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <h5><i class="fas fa-map-marker-alt me-2 text-primary"></i> Location</h5>
+                            <p>The Copperbelt University, Zambia</p>
+                        </div>
+                    </div>
+                    <div class="mt-4">
+                        <a href="#contact" class="btn btn-gradient me-2">Contact Me</a>
+                        <a href="#" class="btn btn-outline-secondary">Download CV</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills">
+        <div class="container">
+            <h2 class="section-title text-center">My Skills</h2>
+            <div class="row">
+                <div class="col-md-6 col-lg-4">
+                    <div class="skill-card">
+                        <div class="skill-icon">
+                            <i class="fas fa-code"></i>
+                        </div>
+                        <h5>Web Development</h5>
+                        <div class="d-flex justify-content-between">
+                            <span>HTML/CSS</span>
+                            <small>85%</small>
+                        </div>
+                        <div class="progress">
+                            <div class="progress-bar" role="progressbar" style="width: 85%" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                        <div class="d-flex justify-content-between mt-3">
+                            <span>JavaScript</span>
+                            <small>75%</small>
+                        </div>
+                        <div class="progress">
+                            <div class="progress-bar" role="progressbar" style="width: 75%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                        <div class="d-flex justify-content-between mt-3">
+                            <span>Bootstrap</span>
+                            <small>80%</small>
+                        </div>
+                        <div class="progress">
+                            <div class="progress-bar" role="progressbar" style="width: 80%" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="skill-card">
+                        <div class="skill-icon">
+                            <i class="fas fa-laptop-code"></i>
+                        </div>
+                        <h5>Programming</h5>
+                        <div class="d-flex justify-content-between">
+                            <span>Python</span>
+                            <small>70%</small>
+                        </div>
+                        <div class="progress">
+                            <div class="progress-bar" role="progressbar" style="width: 70%" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                        <div class="d-flex justify-content-between mt-3">
+                            <span>Java</span>
+                            <small>65%</small>
+                        </div>
+                        <div class="progress">
+                            <div class="progress-bar" role="progressbar" style="width: 65%" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                        <div class="d-flex justify-content-between mt-3">
+                            <span>C++</span>
+                            <small>60%</small>
+                        </div>
+                        <div class="progress">
+                            <div class="progress-bar" role="progressbar" style="width: 60%" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="skill-card">
+                        <div class="skill-icon">
+                            <i class="fas fa-cogs"></i>
+                        </div>
+                        <h5>Tools & Technologies</h5>
+                        <div class="d-flex justify-content-between">
+                            <span>Git</span>
+                            <small>75%</small>
+                        </div>
+                        <div class="progress">
+                            <div class="progress-bar" role="progressbar" style="width: 75%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                        <div class="d-flex justify-content-between mt-3">
+                            <span>Database Management</span>
+                            <small>70%</small>
+                        </div>
+                        <div class="progress">
+                            <div class="progress-bar" role="progressbar" style="width: 70%" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                        <div class="d-flex justify-content-between mt-3">
+                            <span>React Basics</span>
+                            <small>60%</small>
+                        </div>
+                        <div class="progress">
+                            <div class="progress-bar" role="progressbar" style="width: 60%" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    
+
+
+    <!-- Projects Section -->
+    <section id="projects">
+        <div class="container">
+            <h2 class="section-title text-center">My Projects</h2>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-4">
+                    <div class="project-card">
+                        <div class="project-img">
+                            <img src="./Screenshot (41).png" alt="Zit Accommodation Hub" class="img-fluid w-100">
+                            <span class="project-tag">Web App</span>
+                        </div>
+                        <div class="project-content">
+                            <h4 class="project-title">Zit Accommodation Hub</h4>
+                            <p>A responsive web application for university students to find and book accommodations near campus.</p>
+                            <div class="tech-stack">
+                                <span class="tech-badge">React</span>
+                                <span class="tech-badge">CSS</span>
+                                <span class="tech-badge">Typescript</span>
+                                <span class="tech-badge">Bootstrap</span>
+                            </div>
+                            <div class="mt-3">
+                                <a href="#" class="btn btn-sm btn-outline-primary">View Project</a>
+                                <a href="#" class="btn btn-sm btn-outline-secondary ms-2">Source Code</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="project-card">
+                        <div class="project-img">
+                            <img src="/api/placeholder/400/300" alt="Student Portal" class="img-fluid w-100">
+                            <span class="project-tag">Web App</span>
+                        </div>
+                        <div class="project-content">
+                            <h4 class="project-title">Student Portal Prototype</h4>
+                            <p>A concept design for a university student portal with course registration and grade tracking features.</p>
+                            <div class="tech-stack">
+                                <span class="tech-badge">HTML</span>
+                                <span class="tech-badge">CSS</span>
+                                <span class="tech-badge">JavaScript</span>
+                                <span class="tech-badge">Bootstrap</span>
+                            </div>
+                            <div class="mt-3">
+                                <a href="#" class="btn btn-sm btn-outline-primary">View Project</a>
+                                <a href="#" class="btn btn-sm btn-outline-secondary ms-2">Source Code</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="project-card">
+                        <div class="project-img">
+                            <img src="/api/placeholder/400/300" alt="Task Manager" class="img-fluid w-100">
+                            <span class="project-tag">Web App</span>
+                        </div>
+                        <div class="project-content">
+                            <h4 class="project-title">Student Task Manager</h4>
+                            <p>A simple web application to help students organize assignments, deadlines, and study schedules.</p>
+                            <div class="tech-stack">
+                                <span class="tech-badge">HTML</span>
+                                <span class="tech-badge">CSS</span>
+                                <span class="tech-badge">JavaScript</span>
+                                <span class="tech-badge">Local Storage</span>
+                            </div>
+                            <div class="mt-3">
+                                <a href="#" class="btn btn-sm btn-outline-primary">View Project</a>
+                                <a href="#" class="btn btn-sm btn-outline-secondary ms-2">Source Code</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-5">
+                <p class="text-muted">More projects coming soon! Currently working on exciting new ideas.</p>
+                <a href="#contact" class="btn btn-gradient">Collaborate with me</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education">
+        <div class="container">
+            <h2 class="section-title text-center">Education & Achievements</h2>
+            <div class="row">
+                <div class="col-lg-6 mb-4 mb-lg-0">
+                    <h3 class="mb-4">Academic Journey</h3>
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <span class="timeline-date">2022 - Present</span>
+                            <div class="timeline-card">
+                                <h4>Bachelor of Science in Computer Science</h4>
+                                <p class="text-primary">The Copperbelt University, Zambia</p>
+                                <p>Currently focusing on software development, data structures, algorithms, and computer networks. Maintaining a strong academic standing.</p>
+                                <div class="mt-2">
+                                    <span class="tech-badge">Data Structures</span>
+                                    <span class="tech-badge">Algorithms</span>
+                                    <span class="tech-badge">Web Development</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <span class="timeline-date">2019 - 2021</span>
+                            <div class="timeline-card">
+                                <h4>High School Certificate</h4>
+                                <p class="text-primary">Kaunda Square Secondary School</p>
+                                <p>Graduated with distinctions in all the Subjects. </p>
+                                <div class="mt-2">
+                                    <span class="tech-badge">Mathematics</span>
+                                    <span class="tech-badge">Physics</span>
+                                    <span class="tech-badge">Chemistry</span>
+                                    <span class="tech-badge">Commerce</span>
+                                    <span class="tech-badge">English</span>
+                                    <span class="tech-badge">Principle Of Accounts</span>
+                                    <span class="tech-badge">Biology</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <h3 class="mb-4">Certifications & Achievements</h3>
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <span class="timeline-date">2024</span>
+                            <div class="timeline-card">
+                                <h4>Introduction to Web Development</h4>
+                                <p class="text-primary">Coursera</p>
+                                <p>Completed comprehensive coursework on HTML, CSS, and JavaScript fundamentals with hands-on projects.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="timeline-item">
+                            <span class="timeline-date">2023</span>
+                            <div class="timeline-card">
+                                <h4>Python Programming</h4>
+                                <p class="text-primary">Udemy</p>
+                                <p>Self-paced certification course covering Python programming fundamentals, data structures, and basic algorithms.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="container">
+            <h2 class="section-title text-center">Get In Touch</h2>
+            <div class="row">
+                <div class="col-lg-5 mb-4 mb-lg-0">
+                    <div class="contact-info-card">
+                        <h4 class="mb-4">Contact Information</h4>
+                        <div class="d-flex mb-4">
+                            <div class="contact-icon me-3">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div>
+                                <h5>Location</h5>
+                                <p>The Copperbelt University, Kitwe, Zambia</p>
+                            </div>
+                        </div>
+                        <div class="d-flex mb-4">
+                            <div class="contact-icon me-3">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div>
+                                <h5>Email</h5>
+                                <p>chandabrian02@gmail.com</p>
+                            </div>
+                        </div>
+                        <div class="d-flex mb-4">
+                            <div class="contact-icon me-3">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div>
+                                <h5>Phone</h5>
+                                <p>+260 972526777</p>
+                            </div>
+                        </div>
+                        <div class="social-links mt-4">
+                            <h5>Follow Me</h5>
+                            <div class="mt-3">
+                                <a href="https://github.com/BRIANCHANDA"><i class="fab fa-github"></i></a>
+                                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                                <a href="#"><i class="fab fa-twitter"></i></a>
+                                <a href="#"><i class="fab fa-instagram"></i></a>
+                                <a href ="https://web.facebook.com/brizzy.chizzy.52/about"><i class="fab fa-facebook"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-7">
+                    <div class="contact-form bg-white p-4 rounded shadow-sm">
+                        <h4 class="mb-4">Send a Message</h4>
+                        <form>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="name" class="mb-2">Your Name</label>
+                                        <input type="text" class="form-control" id="name" placeholder="Enter your name">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="email" class="mb-2">Your Email</label>
+                                        <input type="email" class="form-control" id="email" placeholder="Enter your email">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group mt-3">
+                                <label for="subject" class="mb-2">Subject</label>
+                                <input type="text" class="form-control" id="subject" placeholder="Enter subject">
+                            </div>
+                            <div class="form-group mt-3">
+                                <label for="message" class="mb-2">Message</label>
+                                <textarea class="form-control" id="message" rows="5" placeholder="Enter your message"></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-gradient mt-4">Send Message</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row text-center">
+                <div class="col-md-12">
+                    <div class="social-links mb-4">
+                        <a href="#"><i class="fab fa-github"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                    <p>&copy; 2025 Brian Bravo Chanda. All Rights Reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scroll to top button -->
+    <a href="#" class="scroll-to-top" id="scrollToTop">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+
+    <!-- Bootstrap Bundle with Popper -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Scroll to top button visibility
+        window.addEventListener('scroll', function() {
+            if (window.pageYOffset > 300) {
+                document.getElementById('scrollToTop').classList.add('active');
+            } else {
+                document.getElementById('scrollToTop').classList.remove('active');
+            }
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Navbar active state based on scroll position
+        const sections = document.querySelectorAll('section');
+        const navLinks = document.querySelectorAll('.nav-link');
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (pageYOffset >= sectionTop - 150) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').includes(current)) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
